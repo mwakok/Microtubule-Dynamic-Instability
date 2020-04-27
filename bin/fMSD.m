@@ -1,0 +1,1 @@
+function Output = fMSD(Input)
