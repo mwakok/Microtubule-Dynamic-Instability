@@ -8,10 +8,10 @@ if Config.Save == true
         return
     end
     
-    t = datetime;
+%     t = datetime;
     
-    SaveName = strcat('DI','_',datestr(t),'.mat');
-    
+%     SaveName = strcat('DI','_',datestr(t),'.mat');
+    SaveName = strcat('DI.mat');
     SaveFile = strcat(SaveFolder, '\', SaveName);
    
     % Check if file already exists

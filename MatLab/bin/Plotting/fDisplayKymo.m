@@ -15,7 +15,7 @@ end
 Coordinates = Data.Coordinates;
 Kymo = Data.Kymo;
 Position_MT = Results.Position_MT;
-Position_EB = Results.Position_EB;
+Position_Comet = Results.Position_Comet;
 smoothness = Config.Smooth;
 File_ID = Data.Files;
 T_skip = Config.Frame_Skip;
@@ -23,9 +23,9 @@ Contact = Results.Contact_Times;
 
 % Check input 
 mode = 2; % Default: both MT and EB traces are present
-if isempty(Position_EB) && ~isempty(Position_MT) % If no comet trace is present
+if isempty(Position_Comet) && ~isempty(Position_MT) % If no comet trace is present
     mode = 1;
-elseif isempty(Position_MT) && isempty(Position_EB) % If no MT and comet trace is present
+elseif isempty(Position_MT) && isempty(Position_Comet) % If no MT and comet trace is present
     mode = 0;    
 end
 
@@ -147,8 +147,8 @@ if CH_num == 2
     imagesc(Image{2});
 
     if mode == 2
-        Shift = Position_EB{:,ind}(1,1)-1;
-        plot(Position_EB{1,ind}(:,2),Position_EB{1,ind}(:,1)-Shift,'g','LineWidth',2);
+        Shift = Position_Comet{:,ind}(1,1)-1;
+        plot(Position_Comet{1,ind}(:,2),Position_Comet{1,ind}(:,1)-Shift,'g','LineWidth',2);
     else
         Shift = Coordinates{1,ind}(1,1) -1;
         plot(Coordinates{1,ind}(:,2), Coordinates{1,ind}(:,1)-Shift,'g','LineWidth',2);

@@ -1,4 +1,4 @@
-function Coordinates = fCoordinates( Data )
+function Coordinates = fCoordinates(Data)
 %%%------------------------------------------------------------------------
 % Function to obtain the MT position at each timepoint based to manually
 % traced events.
@@ -13,14 +13,18 @@ function Coordinates = fCoordinates( Data )
 toolbox = ver;
 
 % Loop over all installed toolboxes to find the "Mapping Toolbox"
-for n = 1 : length(toolbox)
-    
+detect_toolbox = 0;
+for n = 1 : length(toolbox)    
     % If the toolbox is not present, then give warning and return
    if strcmp(toolbox(n).Name, 'Mapping Toolbox')
-       warning('"Mapping Toolbox" is not installed. Please install the toolbox via Apps - Get More Apps.')
-       Coordinates = [];
-       return
+       detect_toolbox = 1;       
    end
+end
+
+if detect_toolbox == 0
+    warning('"Mapping Toolbox" is not installed. Please install the toolbox via Apps - Get More Apps.')
+    Coordinates = [];
+    return
 end
 
 % Collect the X- and Y-coordinates

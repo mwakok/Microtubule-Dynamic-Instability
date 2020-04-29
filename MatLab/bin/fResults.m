@@ -28,7 +28,7 @@ if ~isempty(Results.Contact_Times)
     C_num(1) = sum(Results.Catastrophe_free);
     % Calculate the mean frequency
     F_c(1,1) = C_num(1) / (sum(Results.Growth_Time)/60); % per minute
-    % Calculate the standard deviation. The process is considered to be
+    % Calculate the standard deviation. The process is considered to
     % follow Poisson statistics.
     F_c(1,2) = F_c(1,1) / sqrt(C_num(1));
     
