@@ -34,8 +34,6 @@ Config.Kymo_analysis = 1;        % Analyse kymograph: true or false (1 or 0)
 Config.Barrier = 0;              % Indicate presence of stalling events: true or false (1 or 0)
 Config.Barrier_Width = 3;        % Margin of error for considering width of barrier region
 
-Config.SteadyState = 0;          % Find phases of steady-state MT growth (UNDER DEVELOPMENT)
-
 Config.Frame_Skip = 0;           % Number of frames at the start of an event to be ignored during analysis
 Config.Correct_data = 0;         % Correct fitting errors of MT tip based on goodness-of-fit, replacement with linear interpolation: true or false (1 or 0)
 Config.Smooth = 1;               % Amount of smoothing of MT end trace, only for display purposes (higher is more, 1 is none): 
@@ -69,12 +67,6 @@ Results.Position_MT = fMT_Fit(Data, Config);
 
 % Locate peak of EB comet by fitting with Gaussian function
 Results.Position_Comet = fComet_Fit(Data, Config);  
-
-% Identify steady-state growth (UNDER DEVELOPMENT)
-% This could rely on the selection criteria based on the method presented 
-% in Rickman et al. [2017].
-
-% Results.SteadyState = fSteady_State(Config, Data, Results);
 
 %% INTENSITY PROFILES
 % Create and plot intensity profiles of the microtubule and the comet,
